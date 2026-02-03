@@ -1,6 +1,6 @@
 package com.github.schunckleonardo.strproducer.config
 
-import com.github.schunckleonardo.strproducer.constants.KafkaTopicConstants
+import com.github.schunckleonardo.strproducer.entities.constants.KafkaTopicConstants
 import org.apache.kafka.clients.admin.AdminClientConfig
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties
 import org.springframework.context.annotation.Bean

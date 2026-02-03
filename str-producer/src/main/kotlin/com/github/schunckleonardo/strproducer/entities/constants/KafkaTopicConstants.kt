@@ -1,4 +1,4 @@
-package com.github.schunckleonardo.strproducer.constants
+package com.github.schunckleonardo.strproducer.entities.constants
 
 object KafkaTopicConstants {
 
