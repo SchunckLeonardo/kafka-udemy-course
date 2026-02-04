@@ -13,6 +13,7 @@ class StringProducerService(
 ) {
 
     fun sendMessage(message: String) {
+        logger.info("Sending message: $message")
         sendMessageWithKey(
             KafkaTopicConstants.STR_TOPIC, message
         )  { success ->

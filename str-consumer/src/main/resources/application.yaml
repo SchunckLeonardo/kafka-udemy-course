@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: str-consumer
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+
+server:
+  port: 8100
