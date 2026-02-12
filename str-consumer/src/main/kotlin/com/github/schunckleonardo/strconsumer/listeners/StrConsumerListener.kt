@@ -1,6 +1,5 @@
 package com.github.schunckleonardo.strconsumer.listeners
 
-import com.github.schunckleonardo.strconsumer.listeners.custom.StrConsumerCustomListener
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.annotation.KafkaListener
@@ -14,17 +13,19 @@ class StrConsumerListener(
     @KafkaListener(
         groupId = "group-1",
         topics = ["str-topic"],
-        containerFactory = "concurrentKafkaListenerContainerFactory"
+        containerFactory = "concurrentKafkaListenerContainerFactory",
+        errorHandler = "errorCustomHandler"
     )
-    @StrConsumerCustomListener(groupId = "group-1")
     fun create(message: String) {
         logger.info("CREATE ::: Received message: $message")
+        throw RuntimeException("Test exception")
     }
 
     @KafkaListener(
         groupId = "group-2",
         topics = ["str-topic"],
-        containerFactory = "validMessageContainerFactory"
+        containerFactory = "validMessageContainerFactory",
+        errorHandler = "errorCustomHandler"
     )
     fun history(message: String) {
         logger.info("HISTORY ::: Received message: $message")
