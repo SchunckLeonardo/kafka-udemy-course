@@ -1,6 +1,5 @@
 package com.github.schunckleonardo.strconsumer.exceptions
 
-import org.apache.kafka.clients.consumer.Consumer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.listener.KafkaListenerErrorHandler
@@ -21,11 +20,4 @@ class ErrorCustomHandler : KafkaListenerErrorHandler {
         return Any()
     }
 
-    override fun handleError(
-        message: Message<*>,
-        exception: ListenerExecutionFailedException,
-        consumer: Consumer<*, *>
-    ): Any {
-        return handleError(message, exception)
-    }
 }
